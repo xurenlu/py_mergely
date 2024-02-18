@@ -42,7 +42,7 @@ def serialize(obj):
 
 
 END_POINT = "https://console.mergely.app/api/v3/"
-VERSION = "1.0.17"
+VERSION = "1.0.18"
 
 
 class Mergely:
@@ -53,7 +53,10 @@ class Mergely:
             'Authorization': f'Bearer {token}',
             'Content-Type': 'Application/json',
             'Accept': 'Application/json',
-            'User-Agent': f'Mergely-Python-SDK/{VERSION}'
+            'User-Agent': f'Mergely-Python-SDK/{VERSION}',
+            'X-Mergely-SDK': 'Python-SDK',
+            'X-Mergely-SDK-Version': f'{VERSION}',
+            'X-Mergely-Hostname': socket.gethostname()
         }
         self.ep = ep
 
